@@ -79,7 +79,7 @@ A list of words in the sentence based on the separator
 
 def tokenize_string(s,separator):
     word_list = list([])
-    if isinstance(s,basestring):
+    if isinstance(s,str):
         word_list = s.split(separator)
     return word_list
 

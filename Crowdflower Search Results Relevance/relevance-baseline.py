@@ -35,13 +35,13 @@ def get_linear_model():
 
 
 def print_evaluation_metrics(trained_model,trained_model_name,X_test,y_test):
-    print '--------- For Model : ', trained_model_name ,' ---------\n'
+    print ('--------- For Model : %s ---------\n'% trained_model_name)
     predicted_values = trained_model.predict(X_test)
-    print "Mean Absolute Error : ", metrics.mean_absolute_error(y_test,predicted_values)
-    print "Median Absolute Error : ", metrics.median_absolute_error(y_test,predicted_values)
-    print "Mean Squared Error : ", metrics.mean_squared_error(y_test,predicted_values)
-    print "R2 Score : ", metrics.r2_score(y_test,predicted_values)
-    print "---------------------------------------\n"
+    print ("Mean Absolute Error : {:.2f}%".format(metrics.mean_absolute_error(y_test,predicted_values)))
+    print ("Median Absolute Error : {:.2f}%".format(metrics.median_absolute_error(y_test,predicted_values)))
+    print ("Mean Squared Error : {:.2f}".format(metrics.mean_squared_error(y_test,predicted_values)))
+    print ("R2 Score : {:.2f}".format(metrics.r2_score(y_test,predicted_values)))
+    print ("---------------------------------------\n")
 
 
 def get_total_features(search_frame,first_col_name='product_title',second_col_name='product_description',query_col_name='query'):
@@ -61,7 +61,7 @@ def get_total_features(search_frame,first_col_name='product_title',second_col_na
     return final_consolidated_feature_list
 
 
-filename = 'train.csv'
+filename = 'data/train.csv'
 search_frame = pd.read_csv(filename)
 search_frame.dropna(inplace=True)
 
